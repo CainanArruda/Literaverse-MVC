@@ -1,0 +1,166 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+
+/* Variáveis de tema e reset base */
+:root {
+    --cor-primaria: #343D75;
+    --cor-secundaria: #996E9C;
+    --cor-terciaria: #6B74B8;
+    --cor-destaque: #1A1934;
+    --fundo-claro: #F4E0CC;
+    --fundo-escuro: #1A1934;
+    --superficie-clara: #F4E0CC;
+    --superficie-escura: #343D75;
+    --texto-claro: #F4E0CC;
+    --texto-escuro: #000000;
+    --texto-secundario-claro: rgba(244, 224, 204, 0.8);
+    --texto-secundario-escuro: rgba(0, 0, 0, 0.7);
+    --cor-amarela: #FFD700;
+    /* Compatibilidade — aliases usados por módulos fragmentados */
+    --bg: var(--superficie-clara);
+    --bg-secundario: var(--superficie-clara);
+    --texto: var(--texto-escuro);
+    --texto-secundario: var(--texto-secundario-escuro);
+    --placeholder: rgba(0, 0, 0, .35);
+    --borda: rgba(0, 0, 0, .08);
+
+    --input-bg-light: #F6EAFB;
+    --input-border-light: var(--cor-amarela);
+    --input-bg-dark: rgba(255, 255, 255, 0.03);
+    --input-border-dark: var(--cor-amarela);
+
+    /* Círculos de background (modo claro) */
+    --circulo1-start: rgba(153, 110, 156, 0.95);
+    --circulo1-mid: rgba(107, 116, 184, 0.45);
+    --circulo1-end: rgba(244, 224, 204, 0.0);
+    --circulo2-start: rgba(107, 116, 184, 0.75);
+    --circulo2-mid: rgba(153, 110, 156, 0.35);
+    --circulo2-end: rgba(244, 224, 204, 0.0);
+}
+
+/* Reset e base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(180deg, #F4E0CC 0%, #996E9C 100%);
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.logo-imagem {
+    color: var(--texto-claro);
+}
+
+body.tema-claro .logo-imagem {
+    filter: invert(1);
+}
+
+body.tema-claro {
+    --texto-escuro: var(--cor-destaque);
+}
+
+body.tema-escuro {
+    background: linear-gradient(180deg, #1A1934 0%, #343D75 100%);
+    background-attachment: fixed;
+    color: var(--texto-claro);
+    --placeholder: rgba(255, 255, 255, 0.6);
+    --borda: rgba(255, 255, 255, 0.06);
+    --texto-secundario-escuro: var(--texto-secundario-claro);
+    /* aliases para compatibilidade com módulos que usam --bg / --texto */
+    --bg: var(--superficie-escura);
+    --bg-secundario: rgba(255, 255, 255, 0.02);
+    --texto: var(--texto-claro);
+    --texto-secundario: var(--texto-secundario-claro);
+}
+
+/* Container responsivo central */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Força o navbar do Bootstrap a ser transparente */
+.cabecalho.navbar {
+    background: transparent !important;
+    --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+    --bs-navbar-color: var(--texto);
+}
+
+/* Ajusta a cor do ícone do menu hambúrguer no tema escuro */
+body.tema-escuro .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+
+/* Tema escuro (variáveis dinâmicas) */
+body.tema-escuro {
+    --circulo1-start: rgba(255, 255, 255, 0.20);
+    --circulo1-mid: rgba(255, 255, 255, 0.08);
+    --circulo1-end: rgba(255, 255, 255, 0.00);
+    --circulo2-start: rgba(255, 255, 255, 0.16);
+    --circulo2-mid: rgba(255, 255, 255, 0.06);
+    --circulo2-end: rgba(255, 255, 255, 0.00);
+}
+
+.fonte-titulo {
+    font-family: 'Lora', serif;
+}
+
+
+
+/* Forçar contraste em selects nativos no tema escuro (cobre biblioteca e editor) */
+body.tema-escuro select,
+body.tema-escuro select option {
+    background-color: var(--bg);
+    color: var(--texto);
+    -webkit-text-fill-color: var(--texto);
+}
+
+/* Melhora para dropdowns estilizados (filtro, toolbar, inputs) */
+body.tema-escuro .campo-filtro,
+body.tema-escuro .campo-filtro option,
+body.tema-escuro .toolbar select,
+body.tema-escuro .toolbar select option,
+body.tema-escuro .form-input,
+body.tema-escuro .form-input option {
+    background-color: var(--input-bg-dark);
+    color: var(--texto);
+    border-color: var(--input-border-dark);
+    -webkit-text-fill-color: var(--texto);
+}
+
+body.tema-claro .form-input,
+body.tema-claro .form-input option {
+    background-color: var(--input-bg-light);
+    color: var(--texto-escuro);
+    border-color: var(--input-border-light);
+    -webkit-text-fill-color: var(--texto-escuro);
+}
+
+.cabecalho.navbar.sticky-top {
+    background: rgba(26, 25, 52, 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+    --bs-navbar-color: var(--texto);
+}
+
+body.tema-escuro .logo-texto {
+    color: var(--texto-claro);
+}

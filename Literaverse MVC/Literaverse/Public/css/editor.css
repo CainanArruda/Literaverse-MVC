@@ -1,0 +1,232 @@
+/* Editor específico */
+.editor-container {
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--bg-secundario);
+    position: relative;
+    /* necessário para o glow pseudo-element */
+    overflow: visible;
+}
+
+.toolbar {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    padding: .5rem;
+    border-bottom: 1px solid var(--borda);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.02));
+}
+
+.toolbar select,
+.toolbar button {
+    padding: .4rem .6rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toolbar button:hover,
+.toolbar select:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* Melhor contraste para select/options no editor */
+.toolbar select {
+    background-color: var(--bg);
+    color: var(--texto);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    min-width: 84px;
+}
+
+.toolbar select:focus {
+    outline: 2px solid rgba(100, 140, 255, 0.22);
+}
+
+/* Força cores das opções (funciona na maioria dos navegadores modernos) */
+.toolbar select option {
+    background-color: var(--bg);
+    color: var(--texto);
+}
+
+/* Ajustes específicos para tema escuro — garante contraste forte */
+body.tema-escuro .toolbar select,
+body.tema-escuro .toolbar select option {
+    background-color: #0f1724;
+    /* tom escuro neutro */
+    color: #e6eef8;
+    /* texto claro */
+    -webkit-text-fill-color: #e6eef8;
+    /* Chrome/Safari */
+}
+
+/* Melhor apresentação do desplegable no Windows/Edge */
+.toolbar select::-ms-expand {
+    /* remove ícone default no IE/Edge */
+    display: block;
+}
+
+.editor {
+    min-height: 60vh;
+    padding: 1rem;
+    outline: none;
+    white-space: pre-wrap;
+}
+
+/* Garantir que toolbar e editor fiquem acima do glow */
+.toolbar,
+.editor {
+    position: relative;
+    z-index: 1;
+}
+
+/* Luminância suave atrás do quadro de escrita */
+.editor-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px);
+    opacity: 0.7;
+    background: radial-gradient(600px 300px at 25% 20%, rgba(255, 255, 255, 0.03), transparent 20%),
+        radial-gradient(600px 300px at 75% 80%, rgba(100, 140, 255, 0.02), transparent 20%);
+    border-radius: 10px;
+}
+
+/* Acentuar o brilho no tema escuro */
+body.tema-escuro .editor-container::before {
+    background: radial-gradient(600px 300px at 25% 20%, rgba(255, 255, 255, 0.04), transparent 18%),
+        radial-gradient(600px 300px at 75% 80%, rgba(80, 120, 200, 0.06), transparent 22%);
+    filter: blur(48px);
+    opacity: 0.95;
+}
+
+/* Contraste melhorado para tema escuro */
+body.tema-escuro .editor-container {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.06));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) inset;
+}
+
+body.tema-escuro .toolbar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.06));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.tema-escuro .toolbar button,
+body.tema-escuro .toolbar select {
+    color: #e6eef8;
+}
+
+body.tema-escuro .editor {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.12));
+    color: #e6eef8;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Placeholder visual quando editor estiver vazio */
+.editor[contenteditable]:empty:before {
+    content: attr(data-placeholder);
+    color: rgba(230, 238, 248, 0.35);
+    pointer-events: none;
+}
+
+@media (max-width:700px) {
+    .toolbar {
+        gap: .3rem
+    }
+
+    .editor {
+        min-height: 50vh
+    }
+}
+
+/* Painel de rascunhos (lado direito) */
+.rascunhos-panel {
+    position: fixed;
+    right: 1.5rem;
+    top: 6rem;
+    width: 320px;
+    max-height: 70vh;
+    background: var(--bg-secundario);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: .75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: auto;
+    z-index: 80;
+}
+
+.rascunhos-panel .rascunhos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem
+}
+
+.lista-rascunhos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rascunho-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04)
+}
+
+.rascunho-item .meta small {
+    color: var(--texto-secundario);
+}
+
+.rascunho-actions {
+    display: flex;
+    gap: .5rem
+}
+
+/* Modal simples centralizado */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 90
+}
+
+.modal-conteudo {
+    background: var(--bg);
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 520px;
+    width: 92%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3)
+}
+
+.modal .form-row {
+    margin-bottom: .6rem
+}
+
+.modal .modal-actions {
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end
+}
+
+@media (max-width:900px) {
+    .rascunhos-panel {
+        position: static;
+        width: auto;
+        max-height: 200px;
+        margin-top: 1rem
+    }
+}

@@ -1,0 +1,292 @@
+/* Cards, grids e destaques */
+
+.cartao-livro {
+    background: var(--superficie-clara);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    border: 1px solid var(--borda);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.cartao-livro:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--cor-terciaria);
+
+}
+
+body.tema-claro .cartao-livro {
+    background: #FFFFFF
+}
+
+body.tema-escuro .cartao-livro {
+    background: var(--superficie-escura);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+}
+
+.imagem-livro {
+    width: 100%;
+    height: 360px; /* Altura fixa para todas as capas */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    display: block;
+}
+
+.cartao-livro .info-livro {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--superficie-clara);
+    border-top: 1px solid var(--borda);
+}
+
+body.tema-claro .cartao-livro .info-livro {
+    background: #FFFFFF
+}
+
+body.tema-escuro .cartao-livro .info-livro {
+    background: rgba(255, 255, 255, 0.02)
+}
+
+.titulo-livro {
+    font-weight: 600;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: var(--texto);
+}
+
+.autor-livro {
+    color: var(--texto-secundario-escuro);
+    font-size: 0.95rem;
+    margin-top: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 0.5rem;
+}
+
+/* Destaque e grids */
+.secao-destaque {
+    padding: 3.5rem 0
+}
+
+.grid-livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem
+}
+
+.cartao-livro {
+    background: var(--superficie-clara);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .2s;
+    position: relative;
+}
+
+.cartao-livro:hover {
+    transform: translateY(-6px)
+}
+
+/* Cartões de obra (perfil) */
+.cartao-obra {
+    background: var(--superficie-clara);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+body.tema-escuro .cartao-obra {
+    background: var(--superficie-escura);
+}
+
+.obra-titulo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--texto-escuro);
+}
+
+.obra-status {
+    color: var(--texto-secundario-escuro);
+    font-size: 0.9rem;
+}
+
+.obra-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--texto-secundario-escuro);
+}
+
+.botao-gerenciar {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--cor-terciaria);
+    color: var(--texto-claro);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Detalhe do livro */
+.detalhe-livro .detalhe-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    padding: 3rem 0
+}
+
+.imagem-livro-detalhe {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06)
+}
+
+.detalhe-imagem .metadados {
+    margin-top: 1rem;
+    color: var(--texto-secundario-escuro)
+}
+
+.detalhe-info .titulo-livro {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    margin-bottom: .25rem
+}
+
+.detalhe-info .subtitulo-livro {
+    color: var(--texto-secundario-escuro);
+    margin-bottom: 1rem
+}
+
+.acoes-livro {
+    display: flex;
+    gap: .75rem;
+    margin: 1rem 0
+}
+
+.botao-acao {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: .5rem .75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--texto-escuro)
+}
+
+body.tema-claro .botao-acao {
+    color: var(--texto-escuro)
+}
+
+body.tema-escuro .botao-acao {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--texto-claro)
+}
+
+/* coloquei pra dar a sensação de que vc ta selecionando*/
+body.tema-escuro .botao-acao:hover {
+    border-color: #fff;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 5px #FFFFFF;
+    transform: scale(1.03);
+}
+
+body.tema-claro .botao-acao:hover {
+    border-color: var(--texto-escuro);
+    text-shadow: 0 0 5px var(--texto-escuro);
+    box-shadow: 0 0 5px var(--texto-escuro);
+    transform: scale(1.03);
+}
+
+.sinopse {
+    margin-top: 1.25rem
+}
+
+.notas {
+    margin-top: 1.25rem
+}
+
+.comentarios {
+    margin-top: 1.25rem
+}
+
+.lista-comentarios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comentario {
+    padding: .75rem 0;
+    border-top: 1px solid var(--borda);
+    color: var(--texto-secundario-escuro)
+}
+
+/* do bglh de comentario privado*/
+body.tema-escuro .CLoginA  {
+    color: #F4E0CC;
+}
+
+body.tema-escuro .CLoginP {
+    color: rgb(96, 98, 98);
+}
+
+body.tema-claro .CLoginA  {
+    color: var(--texto-claro);
+}
+
+body.tema-claro .CLoginP {
+    color: var(--texto-escuro);
+}
+
+
+
+.Capa-Livro {
+    position: relative;
+}
+
+body.tema-escuro .info-hover {
+    position: absolute;
+    inset: 0; 
+    background: linear-gradient(180deg, #1A1934 0%, #343D75 100%);
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+body.tema-claro .info-hover {
+    position: absolute;
+    inset: 0; 
+    background: linear-gradient(180deg, #F4E0CC 0%, #996E9C 100%);
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.cartao-livro:hover .info-hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+

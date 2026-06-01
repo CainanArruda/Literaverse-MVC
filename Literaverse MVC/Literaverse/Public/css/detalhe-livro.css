@@ -1,0 +1,54 @@
+/* CSS para a página de detalhe do livro */
+
+.detalhe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.detalhe-imagem {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagem-livro-detalhe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+}
+
+.metadados {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+.metadados p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.detalhe-info {
+    flex: 2 1 500px; /* Ocupa mais espaço */
+}
+
+@media (max-width: 768px) {
+    .detalhe-grid {
+        flex-direction: column;
+    }
+
+    .detalhe-imagem,
+    .detalhe-info {
+        flex: 1 1 100%; /* Ocupa a largura total */
+    }
+
+    .imagem-livro-detalhe {
+        max-width: 250px; /* Um tamanho razoável para mobile */
+    }
+}

@@ -1,0 +1,98 @@
+/* Layout: herói, seções e containers principais */
+
+/* Herói */
+.secao-heroi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+    background: transparent
+}
+
+.secao-heroi .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 320px
+}
+
+.titulo-heroi {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    max-width: 900px;
+    margin: 0 1rem
+}
+
+.subtitulo-heroi {
+    max-width: 700px;
+    margin-top: 1rem
+}
+
+.botao-heroi {
+    background: var(--cor-secundaria);
+    color: var(--texto-escuro);
+    padding: .75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1.5rem
+}
+
+/* Títulos de seção */
+.titulo-secao {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--texto-claro);
+}
+
+/* Barra de filtros (biblioteca) */
+.barra-filtros {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--superficie-clara);
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body.tema-claro .barra-filtros {
+    background: #FFFFFF
+}
+
+body.tema-escuro .barra-filtros {
+    background: rgba(255, 255, 255, 0.02)
+}
+
+.rotulo-filtro {
+    font-weight: 500;
+    color: var(--texto-escuro);
+}
+
+.campo-filtro {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    background: var(--input-bg-light);
+    color: var(--texto-escuro);
+    font-size: 0.95rem;
+    min-width: 160px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-filtro:hover {
+    border-color: var(--cor-terciaria);
+}
+
+body.tema-escuro .campo-filtro {
+    background: var(--input-bg-dark);
+    color: var(--texto-claro);
+    border-color: var(--input-border-dark);
+}

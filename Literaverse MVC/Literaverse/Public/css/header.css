@@ -1,0 +1,219 @@
+/* Header e navegação */
+.cabecalho {
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 12px 0;
+    transition: background .2s, color .2s;
+}
+
+.cabecalho-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-imagem {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-texto {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.nav-principal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lista-nav {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.link-nav {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.link-nav:hover {
+    color: var(--cor-terciaria);
+}
+
+/* Busca */
+.form-busca {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-busca {
+    width: 220px;
+    padding: .5rem 1rem .5rem 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--borda);
+    background: var(--input-bg-light);
+    color: var(--texto);
+    box-shadow: 0 4px 10px rgba(2, 6, 23, 0.04);
+    transition: box-shadow .15s ease, border-color .12s ease, background .12s ease;
+}
+
+.campo-busca::placeholder {
+    color: var(--placeholder);
+}
+
+.campo-busca:focus {
+    outline: none;
+    box-shadow: 0 6px 18px rgba(85, 38, 109, 0.12);
+    border-color: var(--cor-destaque);
+}
+
+.icone-busca {
+    position: absolute;
+    left: .75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--placeholder);
+    pointer-events: none;
+}
+
+/* Tema escuro: garantir contraste do campo de busca */
+body.tema-escuro .form-busca {
+    /* tornar o contêiner levemente translúcido para destaque */
+    background: transparent;
+}
+
+body.tema-escuro .campo-busca {
+    background: var(--input-bg-dark);
+    border: 1px solid var(--input-border-dark);
+    color: var(--texto);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.45) inset;
+}
+
+body.tema-escuro .campo-busca::placeholder {
+    color: var(--placeholder);
+}
+
+body.tema-escuro .icone-busca {
+    color: var(--placeholder);
+}
+
+/* Botão hambúrguer (mobile) */
+.botao-menu {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.botao-menu .barra {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    border-radius: 50%;
+    position: relative;
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+.botao-menu .barra+.barra {
+    margin-top: 4px
+}
+
+body.tema-claro .botao-menu {
+    color: var(--texto-escuro);
+}
+
+body.tema-escuro .botao-menu {
+    color: var(--texto-claro);
+}
+
+/* Navbar mobile collapsed panel */
+@media (max-width:820px) {
+    .botao-menu {
+        display: flex
+    }
+
+    .nav-principal {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+        padding: 1rem 1.25rem 1.75rem;
+        background: rgba(7, 16, 36, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--borda);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-4px);
+        transition: opacity .22s ease, transform .25s ease, visibility .25s step-end;
+        z-index: 60
+    }
+
+    body.tema-claro .nav-principal {
+        background: rgba(251, 251, 253, 0.95)
+    }
+
+    .nav-principal.aberta {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition: opacity .22s ease, transform .25s ease, visibility 0s
+    }
+
+    .nav-principal .lista-nav {
+        flex-direction: column;
+        gap: .85rem;
+        display: flex
+    }
+
+    .nav-principal .acoes-usuario {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem
+    }
+
+    .nav-principal .form-busca {
+        width: 100%
+    }
+
+    .nav-principal .campo-busca {
+        width: 100%
+    }
+
+    .cabecalho-grid {
+        position: relative
+    }
+}

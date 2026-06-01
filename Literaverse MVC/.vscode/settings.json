@@ -1,0 +1,5 @@
+//Codigo para deixar a pasta "Public" como raiz, assim prevenindo erros para puxar os caminhos pro "index.html"
+
+{
+  "liveServer.settings.root": "/Public"
+}

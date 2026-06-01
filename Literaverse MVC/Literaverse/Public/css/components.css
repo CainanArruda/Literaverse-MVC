@@ -1,0 +1,487 @@
+/* Componentes e utilitários (botões, formulários, helpers) */
+
+/* Ações do usuário */
+.acoes-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.botao-login {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Efeito Hover para o botão de texto (Login) */
+.botao-login:hover {
+    color: var(--cor-secundaria);
+    transform: translateY(-1px);
+}
+
+.botao-cadastro {
+    background: var(--cor-secundaria);
+    color: var(--texto-escuro);
+    padding: .5rem 1rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    display: inline-block;
+}
+
+/* Efeito Hover para botões de destaque */
+.botao-cadastro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.05);
+}
+
+/* Botão de tema */
+.botao-tema {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    padding: .35rem;
+    border: 0;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--texto-escuro);
+    transition: background-color 0.2s ease;
+}
+
+.botao-tema:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.tema-escuro .botao-tema:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.botao-tema svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform .15s, opacity .15s;
+}
+
+.icone-sol {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.icone-lua {
+    opacity: 0;
+    transform: scale(.8);
+}
+
+body.tema-escuro .botao-tema {
+    color: var(--texto-claro);
+}
+
+body.tema-escuro .icone-sol {
+    opacity: 0;
+    transform: scale(.8);
+}
+
+body.tema-escuro .icone-lua {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Acessibilidade */
+.oculto {
+    display: none;
+}
+
+.apenas-leitura {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Formulários Gerais */
+.registration-form {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.25rem;
+    border-radius: 8px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: .25rem;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: .5rem .75rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.form-input::placeholder {
+    color: var(--placeholder);
+}
+
+/* Estilização dos Select de Filtro */
+.campo-filtro {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.6rem 2.5rem 0.6rem 1.2rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--input-bg-light);
+    border: 1px solid var(--input-border-light);
+    color: var(--texto-escuro);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23343D75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+}
+
+.campo-filtro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+
+.campo-filtro:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(153, 110, 156, 0.3);
+}
+
+/* Teste pra uma nova versão */ 
+.select {
+    margin-right: 60px;
+}
+
+#category-select label {
+    font-size: .75rem;
+    letter-spacing: 0.0225rem;
+}
+
+#select-button {
+    font-size: 15px;
+    margin-top: .5rem;
+    display: flex;
+    padding: .75rem;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: .375rem;
+    border: 1px solid;
+    border-color: var(--input-border-dark);
+    background-color: #1A1934;
+}
+
+#selected-value {
+    color: #AFABB6;
+    font-size: 0.875rem;
+    letter-spacing: 0.02625rem;
+}
+
+#chevrons svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+#chevrons {
+    color: #AFABB6;
+}
+
+#chevrons [data-type="chevron-up"] {
+    display: none;
+}
+
+#options-view-button:focus + #select-button,
+#options-view-button:checked + #select-button {
+    outline: 1px solid #FFD700;
+}
+
+#category-select:has(#options-view-button:checked) label,
+#options-view-button:checked + #select-button #chevrons {
+    color: #FFD700;
+}
+
+#options-view-button:checked + #select-button #chevrons 
+[data-type="chevron-down"] {
+    display: none;
+}
+
+#options-view-button:checked + #select-button #chevrons 
+[data-type="chevron-up"] {
+    display: block;
+}
+
+#category-select {
+    position: relative;
+}
+
+#options-view-button {
+    all: unset;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#options {
+  margin-top: .25rem;
+  border-radius: .375rem;
+  border: 1px solid #252529;
+  background-color: #1A1934;
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .75rem;
+  width: 100%;
+  border-bottom: 1px solid #252529;
+}
+
+
+.options label {
+  color: #FBF9FE;
+}
+
+.option svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.option svg:last-child {
+    margin-left: auto;
+    color: #FFD700;
+}
+
+.option:has(input:checked),
+.option:hover {
+  border-bottom: 1px solid #252529;
+  background-color: #252529;
+}
+
+.option:has(input:focus) {
+  outline: 1px solid #A881E6;
+}
+
+.option [data-type="check"] {
+  display: none;
+}
+
+.option:has(input:checked) [data-type="check"] {
+  display: block;
+}
+
+
+/* Tema escuro */
+body.tema-escuro .campo-filtro {
+    background-color: var(--input-bg-dark);
+    border-color: var(--input-border-dark);
+    color: var(--texto-claro);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F4E0CC' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+body.tema-escuro .campo-filtro option {
+    background-color: #1A1934;
+    color: #F4E0CC;
+}
+
+body.tema-escuro .campo-filtro:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.rotulo-filtro {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: var(--texto);
+}
+
+/* Continuação Formulários (Senha) */
+.campo-senha-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-senha-container .form-input {
+    padding-right: 3rem;
+}
+
+.botao-mostrar-senha {
+    position: absolute;
+    right: 0.75rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: var(--placeholder);
+    padding: 0.25rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .15s ease;
+}
+
+.botao-mostrar-senha:hover {
+    color: var(--texto-escuro);
+}
+
+body.tema-escuro .botao-mostrar-senha:hover {
+    color: var(--texto-claro);
+}
+
+.botao-mostrar-senha svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+
+.botao-mostrar-senha .icone-olho-aberto {
+    display: none;
+}
+
+.botao-mostrar-senha.ativo .icone-olho-fechado {
+    display: none;
+}
+
+.botao-mostrar-senha.ativo .icone-olho-aberto {
+    display: block;
+}
+
+/* Inputs por tema */
+body.tema-claro .form-input {
+    background: var(--input-bg-light);
+    border: 1px solid var(--input-border-light);
+    color: var(--texto-escuro);
+}
+
+body.tema-escuro .form-input {
+    background: var(--input-bg-dark);
+    border: 1px solid var(--input-border-dark);
+    color: var(--texto-claro);
+}
+
+/* Foco */
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(107, 33, 168, 0.08);
+    border-color: var(--cor-destaque);
+}
+
+/* Autofill */
+input.form-input:-webkit-autofill,
+textarea.form-input:-webkit-autofill,
+select.form-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--input-bg-light) inset;
+    box-shadow: 0 0 0 1000px var(--input-bg-light) inset;
+    -webkit-text-fill-color: var(--texto-escuro);
+}
+
+body.tema-escuro input.form-input:-webkit-autofill,
+body.tema-escuro textarea.form-input:-webkit-autofill,
+body.tema-escuro select.form-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--input-bg-dark) inset;
+    box-shadow: 0 0 0 1000px var(--input-bg-dark) inset;
+    -webkit-text-fill-color: var(--texto-claro);
+}
+
+/* Links e utilitários */
+.link-destaque {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+.link-destaque:hover {
+    color: var(--cor-terciaria);
+}
+
+.link-externo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--texto-secundario-claro);
+    text-decoration: none;
+}
+
+/* pequenos utilitarios */
+.oculto {
+    display: none;
+}
+
+/* Modal */
+.Modal {
+    padding: 0 130px 0 130px;
+    margin: auto;
+    border-radius: 30px;
+    border: 1;
+}
+
+body.tema-claro .Modal {
+    background: linear-gradient(180deg, #F4E0CC 0%, #996E9C 100%);
+    border-color: var(--texto-escuro);
+}
+
+body.tema-escuro .Modal {
+    background: linear-gradient(180deg, #282663 0%, #4451a2 100%);
+    border-color: #FFf;
+}
+
+body.tema-escuro .titulo-P {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: #fff;
+}
+
+body.tema-claro .titulo-P {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: var(--texto-escuro);
+}
+
+body.tema-escuro .TextoTema {
+    color: #FFf;
+    padding-bottom: 10px;
+}
+
+body.tema-claro .TextoTema {
+    color: var(--texto-escuro);
+}
+
+.Botao-fechar {
+    position: fixed;
+    right: 420px;
+    padding: 10px;
+}
