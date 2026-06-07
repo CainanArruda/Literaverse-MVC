@@ -15,7 +15,7 @@
       }
     },
     {
-      "id": 55409,
+      "id": 54829,
       "title": "Memórias Postumas de Brás Cubas",
       "authors": [
         {
@@ -29,7 +29,7 @@
       }
     },
     {
-      "id": 55410,
+      "id": 55982,
       "title": "Quincas Borba",
       "authors": [
         {
@@ -43,7 +43,7 @@
       }
     },
     {
-      "id": 55411,
+      "id": 56102,
       "title": "Esau e Jacob",
       "authors": [
         {
@@ -57,7 +57,7 @@
       }
     },
     {
-      "id": 55412,
+      "id": 55487,
       "title": "A Mão e a Luva",
       "authors": [
         {
@@ -68,6 +68,132 @@
       ],
       "formats": {
         "image/jpeg": "https://www.gutenberg.org/cache/epub/55487/pg55487.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 67160,
+      "title": "Helena",
+      "authors": [
+        {
+          "name": "Assis, Machado de",
+          "birth_year": 1839,
+          "death_year": 1908
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/67160/pg67160.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 67740,
+      "title": "Iracema",
+      "authors": [
+        {
+          "name": "Alencar, José de",
+          "birth_year": 1829,
+          "death_year": 1877
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/67740/pg67740.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 69187,
+      "title": "O Cortiço",
+      "authors": [
+        {
+          "name": "Azevedo, Aluísio",
+          "birth_year": 1857,
+          "death_year": 1913
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/69187/pg69187.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 67935,
+      "title": "Relíquias de Casa Velha",
+      "authors": [
+        {
+          "name": "Assis, Machado de",
+          "birth_year": 1839,
+          "death_year": 1908
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/67935/pg67935.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 32773,
+      "title": "Histórias Sem Data",
+      "authors": [
+        {
+          "name": "Assis, Machado de",
+          "birth_year": 1839,
+          "death_year": 1908
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/32773/pg32773.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 61653,
+      "title": "Poesias Completas",
+      "authors": [
+        {
+          "name": "Assis, Machado de",
+          "birth_year": 1839,
+          "death_year": 1908
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/61653/pg61653.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 67713,
+      "title": "O Guarany (Vol. 1)",
+      "authors": [
+        {
+          "name": "Alencar, José de",
+          "birth_year": 1829,
+          "death_year": 1877
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/67713/pg67713.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 44540,
+      "title": "Cinco Minutos",
+      "authors": [
+        {
+          "name": "Alencar, José de",
+          "birth_year": 1829,
+          "death_year": 1877
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/44540/pg44540.cover.medium.jpg"
+      }
+    },
+    {
+      "id": 38496,
+      "title": "Ubirajara",
+      "authors": [
+        {
+          "name": "Alencar, José de",
+          "birth_year": 1829,
+          "death_year": 1877
+        }
+      ],
+      "formats": {
+        "image/jpeg": "https://www.gutenberg.org/cache/epub/38496/pg38496.cover.medium.jpg"
       }
     }
   ]
